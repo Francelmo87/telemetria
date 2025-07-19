@@ -1,57 +1,29 @@
+<!-- Button to open the offcanvas sidebar -->
+<button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+  <i class="bi bi-list"></i>
+</button>
 
-{% if user.is_authenticated %}
-  <div class="row flex-nowrap">
-  <div class="col-auto col-md-0 col-xl-0 px-0 bg-dark">
-    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
-      <button class="btn btn-dark d-block d-sm-none mb-3" type="button" data-bs-toggle="collapse"
-        data-bs-target="#menuCollapse" aria-expanded="false" aria-controls="menuCollapse">
-        <i class="bi bi-list fs-4"></i>
-      </button>
-      
-      <div class="collapse d-sm-block" id="menuCollapse">
-        <ul class="nav flex-column align-items-start" id="menu">
-          <li>
-            <a href="{% url 'base:home' %}" class="nav-link px-0 align-middle">
-              <i class="bi bi-house-door fs-4"></i>
-              <span class="ms-1">Home</span>
-            </a>
-          </li>
-          
-            <li>
-              <a href="{% url 'contracts:contract_list' %}" class="nav-link px-0 align-middle">
-                <i class="bi bi-card-text fs-4"></i>
-                <span class="ms-1">Contratos</span>
-              </a>
-            </li>
-          
-            <li>
-              <a href="{% url 'requisitions:requisition_list' %}" class="nav-link px-0 align-middle">
-                <i class="bi bi-cart fs-4"></i>
-                <span class="ms-1">Solicitações</span>
-              </a>
-            </li>
-          
-            <li>
-              <a href="{% url 'dispatches:pending_list' %}" class="nav-link px-0 align-middle">
-                <i class="bi bi-list-check fs-4"></i>
-                <span class="ms-1">Entregue</span>
-              </a>
-            </li>
-          
-          <li class="nav-item">
-            {% if user.is_authenticated %}
-            <form action="{% url 'logout' %}" method="post" id="logout-form" class="nav-link px-0 align-middle">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-link text-decoration-none text-reset nav-link px-0 align-middle">
-                <i class="bi bi-box-arrow-right fs-4 align-middle"></i>
-                <span class="ms-1 align-middle">Sair</span>
-              </button>
-            </form>
-            {% endif %}
-          </li>
-        </ul>
-      </div>
-      <hr>
-    </div>
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start text-bg-dark" id="demo">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title text-center">Sistema Supervisório</h1>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
   </div>
-{% endif %}
+  <div class="offcanvas-body">
+    <p>
+      <a href="{% url 'base:index' %}" class="nav-link px-0 align-middle">
+        <i class="bi bi-house-door fs-4"></i>
+        <span class="ms-1">Home</span>
+      </a>
+    </p>
+    <p>
+      <a href="{% url 'tank:tank' %}" class="nav-link px-0 align-middle">
+        <i class="bi bi-droplet-half"></i>
+        <span class="ms-1">Reservatório</span>
+      </a>
+   </p>
+    
+    <button class="btn btn-secondary" type="button">Sair</button>
+  </div>
+</div>
+
