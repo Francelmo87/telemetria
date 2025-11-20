@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'app.base',
-    'app.tank',
+    'app.tanks',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
